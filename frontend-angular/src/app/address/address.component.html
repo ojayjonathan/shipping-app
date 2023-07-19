@@ -1,0 +1,26 @@
+<div class="address-container">
+    <div *ngFor="let field of ['country', 'city', 'state', 'zip', 'street1', 'street2', 'name', 'phone', 'email']">
+      <mat-form-field class="address-input" *ngIf="field !== 'country'">
+        <mat-label>{{ field | titlecase }}</mat-label>
+        <input
+          matInput
+          [value]="getValue(field)"
+          (input)="handleChange($event, field)"
+          [required]="field === 'phone'"
+        />
+        <mat-hint>{{ getHelperText(field) }}</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="address-input" *ngIf="field === 'country'">
+        <mat-label>Country</mat-label>
+        <mat-select
+          [value]="getValue(field)"
+          (selectionChange)="handleChange($event, field)"
+          [required]="true"
+        >
+          <mat-option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</mat-option>
+        </mat-select>
+        <mat-hint>{{ getHelperText(field) }}</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+  

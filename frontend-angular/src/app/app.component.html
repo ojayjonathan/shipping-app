@@ -1,0 +1,36 @@
+<div class="App">
+  <mat-card>
+    <mat-card-content>
+      <h2 class="page-title">Shipping Rates</h2>
+      <form [formGroup]="shipmentForm">
+        <!-- From Address -->
+        <h3 class="section-title">From Address</h3>
+        <!-- Pass the specific form group for fromAddress -->
+        <app-address [addressComponents]="fromAddress"></app-address>
+
+        <!-- To Address -->
+        <h3 class="section-title">To Address</h3>
+        <!-- Pass the specific form group for toAddress -->
+        <app-address [addressComponents]="toAddress"></app-address>
+
+        <!-- Parcel -->
+        <h3 class="section-title">Parcel</h3>
+        <!-- Pass the specific form group for parcel -->
+        <app-parcel [parcel]="parcel"></app-parcel>
+
+        <!-- Submit Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="handleSubmit()"
+          [disabled]="isLoading || shipmentForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Shipping Rates -->
+  <app-shipping-rates [rates]="rates"></app-shipping-rates>
+</div>

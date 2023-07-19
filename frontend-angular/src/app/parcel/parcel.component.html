@@ -1,0 +1,14 @@
+<div class="parcel-container">
+    <div *ngFor="let field of ['length', 'width', 'height', 'weight']">
+      <mat-form-field class="parcel-input">
+        <mat-label>{{ field | titlecase }} (cm/kg)</mat-label>
+        <input
+          matInput
+          type="number"
+          (input)="handleChange(field, $event)"
+          [required]="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  

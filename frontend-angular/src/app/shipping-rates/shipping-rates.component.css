@@ -1,0 +1,13 @@
+.shipping-rates-card {
+    margin-top: 1.5rem;
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+  
+  .no-rates {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
